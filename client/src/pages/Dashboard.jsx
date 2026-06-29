@@ -27,11 +27,11 @@ export default function Dashboard() {
         setDocuments(res.data);
 
     } catch (err) {
+    console.log(err);
+    console.log(err.response);
+    console.log(err.response?.data);
 
-        console.log(err);
-
-        toast.error("Gagal memuat dokumen");
-
+    toast.error("Gagal membuat dokumen");
     }
 
 };
@@ -67,16 +67,21 @@ export default function Dashboard() {
 
         const res = await api.post("/documents");
 
+        console.log("SUCCESS", res.data);
+
         loadDocuments();
 
         toast.success("Dokumen berhasil dibuat");
 
     } catch (err) {
 
+        console.log("ERROR");
         console.log(err);
+        console.log(err.response);
+        console.log(err.response?.status);
+        console.log(err.response?.data);
 
         toast.error("Gagal membuat dokumen");
-
     }
 };
 

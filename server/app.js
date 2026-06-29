@@ -154,8 +154,6 @@ io.on("connection", (socket) => {
 
 });
 
-server.listen(5001, () => {
-
-    console.log("🚀 Socket Server berjalan di http://localhost:5001");
-
+server.listen(5001, "0.0.0.0", () => {
+    console.log("🚀 Socket Server berjalan di http://10.46.1.124:5001");
 });
